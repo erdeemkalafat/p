@@ -20,7 +20,7 @@ namespace yeniproje3
                     hatalistesi += yazı[i].ToString() + " karakterini giremezsiniz!" + Environment.NewLine;
                 }
             }
-            
+
             return hatalistesi;
         }
         public static string ilkHanesiSıfırMı(String yazı)
@@ -59,33 +59,68 @@ namespace yeniproje3
             mesaj += rakamOlmayanİçeriyorMu(yazı);
             mesaj += ilkHanesiSıfırMıSıfırHariclinde(yazı);
             mesaj += boşOlamaz(yazı);
-
             return mesaj;
         }
-                public static bool çiftMi(string yazı)
+        public static string sayıMıint32(string yazı)
         {
-            bool sonuc = true;
-
-            if (sayıMı(yazı) == "")
+            string mesaj = "";
+            mesaj += rakamOlmayanİçeriyorMu(yazı);
+            mesaj += ilkHanesiSıfırMıSıfırHariclinde(yazı);
+            mesaj += boşOlamaz(yazı);
+            mesaj += enFazlaNHane(yazı, 9);
+            return mesaj;
+        }
+        public static string enFazlaNHane(string yazı, int n)
+        {
+            string sonuc = "";
+            if (yazı.Length > n)
             {
-                if (Convert.ToInt32(yazı) %2 == 0)
-                {
-                    sonuc = true;
-                }
-                else
-                {
-                    sonuc = false;
-                }
+                sonuc = "En fazla" + n.ToString() + " hane girmelisiniz.";
             }
-            else
+            return sonuc;
+        }
+        public static bool çiftMi(int sayı)
+        {
+            bool sonuc = false;
+
+            if (Convert.ToInt32(sayı) % 2 == 0)
             {
-                sonuc = false;  
+                sonuc = true;
             }
-
-
 
             return sonuc;
         }
-    }
+        public static bool reşitMi(int yazı, int yasalYasSınırı)
+        {
+            bool sonuc = false;
+            if (yazı > yasalYasSınırı && enFazlaNHane(yazı.ToString(), 2) != "")
+            {
+                sonuc = true;
+            }
+            return sonuc;
+        }
+        public static int faktöriyelBul(int sayı)
+        {
+            int toplam = 1;
+            for (int i = 1; i <= sayı; i++)
+            {
+                toplam *= i;
+            }
+            return toplam;
+        }
+        public static string bölenleriniBul(int sayı)
+        {
+            string sonuc = "";
+            for (int i = 2; i < sayı; i++)
+            {
+                if (sayı % i == 0)
+                {
+                    sonuc += i + "----";
+                }
 
+            }
+            return sonuc;
+
+        }
+    }
 }
