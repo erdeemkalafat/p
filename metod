@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace yeniproje3
+
+{
+    public static class metodlarım
+    {
+        public static string rakamOlmayanİçeriyorMu(string yazı)
+        {
+            string hatalistesi = "";
+
+            for (int i = 0; i < yazı.Length; i++)
+            {
+                if (!(yazı[i] > 47 && yazı[i] < 58))
+                {
+                    hatalistesi += yazı[i].ToString() + " karakterini giremezsiniz!" + Environment.NewLine;
+                }
+            }
+            
+            return hatalistesi;
+        }
+        public static string ilkHanesiSıfırMı(String yazı)
+        {
+            string hata = "";
+            if (yazı[0] == '0')
+            {
+                hata = "Başa Sıfır Gelemez";
+            }
+            return hata;
+        }
+        public static string boşOlamaz(String yazı)
+        {
+            string hata = "";
+            if (yazı.Length == 0)
+            {
+                hata = "Boş geçilemez";
+            }
+            return hata;
+        }
+        public static string ilkHanesiSıfırMıSıfırHariclinde(String yazı)
+        {
+            string hata = "";
+            if (boşOlamaz(yazı) == "")
+            {
+                if (yazı[0] == '0' && yazı != "0")
+                {
+                    hata = "İlk hane sıfır olmaz";
+                }
+            }
+            return hata;
+        }
+        public static string sayıMı(string yazı)
+        {
+            string mesaj = "";
+            mesaj += rakamOlmayanİçeriyorMu(yazı);
+            mesaj += ilkHanesiSıfırMıSıfırHariclinde(yazı);
+            mesaj += boşOlamaz(yazı);
+
+            return mesaj;
+        }
+    }
+
+}
