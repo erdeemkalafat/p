@@ -111,6 +111,21 @@ namespace yeniproje3
         public static string bölenleriniBul(int sayı)
         {
             string sonuc = "";
+            for (int i = 1; i <= sayı; i++)
+            {
+                if (sayı % i == 0)
+                {
+                    sonuc += i + "----";
+                }
+
+            }
+            return sonuc;
+
+        }
+
+        public static string bölenleriniBulKendiHaricinde(int sayı)
+        {
+            string sonuc = "";
             for (int i = 2; i < sayı; i++)
             {
                 if (sayı % i == 0)
@@ -121,6 +136,15 @@ namespace yeniproje3
             }
             return sonuc;
 
+        }
+        public static bool asalMı(int sayı)
+        {
+            bool sonuc = false;
+            if (bölenleriniBulKendiHaricinde (sayı)=="")
+            {
+                sonuc = true;
+            }
+            return sonuc;
         }
     }
 }
