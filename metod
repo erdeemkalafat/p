@@ -62,6 +62,30 @@ namespace yeniproje3
 
             return mesaj;
         }
+                public static bool çiftMi(string yazı)
+        {
+            bool sonuc = true;
+
+            if (sayıMı(yazı) == "")
+            {
+                if (Convert.ToInt32(yazı) %2 == 0)
+                {
+                    sonuc = true;
+                }
+                else
+                {
+                    sonuc = false;
+                }
+            }
+            else
+            {
+                sonuc = false;  
+            }
+
+
+
+            return sonuc;
+        }
     }
 
 }
